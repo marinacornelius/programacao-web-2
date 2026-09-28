@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lanchonete Express — Calculadora de Pedidos</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+  <header class="bg-dark text-white py-3 mb-4">
+    <div class="container d-flex justify-content-between align-items-center">
+      <h1 class="h4 mb-0"><i class="bi bi-basket3"></i> Lanchonete Express</h1>
+      <span class="badge text-bg-warning">Calculadora de Pedidos</span>
+    </div>
+  </header>
+
+  <main class="container mb-5">
+    <div class="row g-4">
+
+      <!-- ================= Coluna esquerda: montagem do pedido ================= -->
+      <div class="col-12 col-lg-7">
+        <div class="card shadow-sm">
+          <div class="card-header bg-primary text-white">
+            <i class="bi bi-egg-fried"></i> Monte seu pedido
+          </div>
+          <div class="card-body">
+
+            <!-- Passo 2: lanche principal (preço no value de cada option) -->
+            <div class="mb-4">
+              <label for="select-lanche" class="form-label fw-semibold">Lanche principal</label>
+              <select class="form-select" id="select-lanche">
+                <option value="0">-- Selecione um lanche --</option>
+                <option value="18.00">X-Burger Clássico — R$ 18,00</option>
+                <option value="22.00">X-Salada Especial — R$ 22,00</option>
+                <option value="26.00">X-Bacon Supremo — R$ 26,00</option>
+              </select>
+            </div>
+
+            <!-- Adicionais com switches + badge de preço -->
+            <div class="mb-4">
+              <span class="form-label fw-semibold d-block">Adicionais</span>
+
+              <div class="form-check form-switch d-flex align-items-center gap-2 mb-2">
+                <input class="form-check-input check-adicional" type="checkbox" role="switch"
+                       id="add-queijo" value="3.00">
+                <label class="form-check-label" for="add-queijo">Queijo extra</label>
+                <span class="badge text-bg-secondary ms-auto">+ R$ 3,00</span>
+              </div>
+
+              <div class="form-check form-switch d-flex align-items-center gap-2 mb-2">
+                <input class="form-check-input check-adicional" type="checkbox" role="switch"
+                       id="add-bacon" value="5.00">
+                <label class="form-check-label" for="add-bacon">Bacon</label>
+                <span class="badge text-bg-secondary ms-auto">+ R$ 5,00</span>
+              </div>
+
+              <div class="form-check form-switch d-flex align-items-center gap-2 mb-2">
+                <input class="form-check-input check-adicional" type="checkbox" role="switch"
+                       id="add-fritas" value="8.00">
+                <label class="form-check-label" for="add-fritas">Batata frita</label>
+                <span class="badge text-bg-secondary ms-auto">+ R$ 8,00</span>
+              </div>
+
+              <div class="form-check form-switch d-flex align-items-center gap-2">
+                <input class="form-check-input check-adicional" type="checkbox" role="switch"
+                       id="add-bebida" value="6.00">
+                <label class="form-check-label" for="add-bebida">Bebida (350 ml)</label>
+                <span class="badge text-bg-secondary ms-auto">+ R$ 6,00</span>
+              </div>
+            </div>
+
+            <!-- Quantidade: input group com botões - e + -->
+            <div class="mb-4">
+              <label for="input-qtd" class="form-label fw-semibold">Quantidade</label>
+              <div class="input-group" style="max-width: 180px;">
+                <button type="button" class="btn btn-outline-secondary" id="btn-menos" aria-label="Diminuir">
+                  <i class="bi bi-dash-lg"></i>
+                </button>
+                <input type="number" class="form-control text-center" id="input-qtd"
+                       value="1" min="1" max="20">
+                <button type="button" class="btn btn-outline-secondary" id="btn-mais" aria-label="Aumentar">
+                  <i class="bi bi-plus-lg"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Tipo de entrega -->
+            <div class="mb-4">
+              <label for="select-entrega" class="form-label fw-semibold">Tipo de entrega</label>
+              <select class="form-select" id="select-entrega">
+                <option value="0">Retirar no balcão — grátis</option>
+                <option value="5.00">Entrega padrão — R$ 5,00</option>
+                <option value="9.00">Entrega expressa — R$ 9,00</option>
+              </select>
+            </div>
+
+            <!-- Cupom de desconto -->
+            <div class="mb-2">
+              <label for="input-cupom" class="form-label fw-semibold">Cupom de desconto</label>
+              <div class="input-group">
+                <input type="text" class="form-control text-uppercase" id="input-cupom"
+                       placeholder="Ex.: IFSC10">
+                <button type="button" class="btn btn-outline-primary" id="btn-cupom">
+                  <i class="bi bi-ticket-perforated"></i> Aplicar
+                </button>
+              </div>
+              <div id="msg-cupom" class="form-text"></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= Coluna direita: resumo financeiro ================= -->
+      <div class="col-12 col-lg-5">
+        <div class="card shadow-sm sticky-lg-top" style="top: 1rem;">
+          <div class="card-header bg-dark text-white">
+            <i class="bi bi-receipt"></i> Resumo do pedido
+          </div>
+
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Subtotal</span>
+              <strong id="subtotal">R$ 0,00</strong>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Taxa de entrega</span>
+              <strong id="taxa-entrega">R$ 0,00</strong>
+            </li>
+            <li class="list-group-item d-flex justify-content-between text-success">
+              <span>Desconto do cupom</span>
+              <strong id="desconto">- R$ 0,00</strong>
+            </li>
+          </ul>
+
+          <div class="card-body">
+            <!-- Destaque do total geral -->
+            <div class="alert alert-success text-center mb-3" role="alert">
+              <div class="small text-uppercase">Total a pagar</div>
+              <div class="display-6 fw-bold" id="total-geral">R$ 0,00</div>
+            </div>
+
+            <div class="d-grid gap-2">
+              <button type="button" class="btn btn-success btn-lg" id="btn-finalizar">
+                <i class="bi bi-check2-circle"></i> Finalizar Pedido
+              </button>
+              <button type="button" class="btn btn-outline-secondary" id="btn-limpar">
+                <i class="bi bi-arrow-counterclockwise"></i> Limpar pedido
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="bg-dark text-white-50 text-center py-3">
+    <small>ProgWeb 2 — CST em Sistemas para a Internet — IFSC Garopaba</small>
+  </footer>
+
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Arquivo da lógica JS -->
+  <script src="app.js"></script>
+</body>
+</html>
