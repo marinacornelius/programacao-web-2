@@ -11,13 +11,14 @@ exercicio-retomada/
 ├── app.js                           # Roteiro 02: jQuery + LocalStorage (Exemplos 6 a 11)
 ├── roteiro-3/
 │   └── exercicio-roteiro3/
-│       ├── index.html               # Roteiro 03: Lanchonete Express
+│       ├── index.html               # Roteiro 03: Brasa & Pão (estrutura + ilustrações SVG)
+│       ├── style.css                # Roteiro 03: paleta, cards, cupons, animações
 │       └── app.js                   # Roteiro 03: cálculo em tempo real + LocalStorage
 ├── README.md
 └── .gitignore
 ```
 
-Os dois `app.js` são independentes: o do Roteiro 03 fica dentro da própria subpasta.
+Os dois `app.js` são independentes: o do Roteiro 03 fica dentro da própria subpasta, junto com o `style.css`.
 
 ## Roteiro 01 — Bootstrap 5 & Layout Responsivo
 
@@ -27,18 +28,42 @@ Os dois `app.js` são independentes: o do Roteiro 03 fica dentro da própria sub
 
 `cadastro.html` + `app.js` (Exemplos 6 a 11): captura de formulário, feedback visual, `.css()`, painel retrátil, tabela dinâmica e persistência com `localStorage`. Extra: filtro por nome em tempo real.
 
-## Roteiro 03 — Lanchonete Express (Calculadora de Pedidos)
+## Roteiro 03 — Brasa & Pão (Calculadora de Pedidos)
 
-`roteiro-3/exercicio-roteiro3/index.html` + `app.js`:
+`roteiro-3/exercicio-roteiro3/index.html` + `style.css` + `app.js`:
 
-- Lanche principal (`select`), adicionais (switches com badge de preço), quantidade (input group com − / +), tipo de entrega e cupom.
+- Lanche principal (`select`, também escolhível pelos cards do cardápio), adicionais (switches com badge de preço), quantidade (input group com − / +), tipo de entrega e cupom.
 - Leitura segura com `parseFloat()` / `parseInt()` e fallback `|| 0`.
-- Eventos: `change` (selects e switches), `input` (quantidade), `click` (botões).
-- Subtotal, taxa de entrega, desconto e total em tempo real, formatados em R$ X,XX.
-- Cupons de teste: `IFSC10` (10% no subtotal) e `FRETEGRATIS` (zera a taxa de entrega).
+- Eventos: `change` (selects e switches), `input` (quantidade), `click` (botões e cards).
+- Subtotal, taxa de entrega, desconto e total em tempo real, formatados em R$ X,XX, com resumo do pedido e prévia do lanche.
 - "Finalizar Pedido" salva o rascunho no `localStorage`; ao recarregar (F5) o pedido é restaurado. "Limpar pedido" apaga o rascunho.
+- Visual: paleta ketchup, mostarda e brioche; ilustrações dos lanches em SVG montadas por camadas (`data-layers`); layout responsivo com Bootstrap 5.
 
-Dependências (via CDN): Bootstrap 5 CSS/JS, Bootstrap Icons e jQuery 3.7.1.
+### Cardápio
+
+| Lanche | Preço |
+|---|---|
+| Brasa Clássico | R$ 19,90 |
+| Praiano Salada | R$ 23,90 |
+| Veggie da Horta | R$ 25,90 |
+| Crocante de Frango | R$ 26,90 |
+| Bacon Defumado | R$ 29,90 |
+| Duplo Smash | R$ 32,90 |
+
+### Cupons
+
+| Código | Regra |
+|---|---|
+| `IFSC10` | 10% no subtotal, sem mínimo |
+| `BRASA15` | 15% no subtotal, pedidos a partir de R$ 50,00 |
+| `COMBO5` | R$ 5,00 de desconto, pedidos a partir de R$ 30,00 |
+| `DOBRADINHA` | 20% no subtotal, levando 2 ou mais lanches |
+| `FRETEZERO` | Zera a taxa de entrega |
+| `MEGABRASA` | 25% no subtotal, pedidos a partir de R$ 100,00 |
+
+Só um cupom por pedido. Se o pedido deixar de cumprir a regra (por exemplo, ao diminuir a quantidade), o desconto é retirado e a página avisa o motivo.
+
+Dependências (via CDN): Bootstrap 5 CSS/JS, Bootstrap Icons, jQuery 3.7.1 e as fontes Baloo 2 e Nunito (Google Fonts).
 
 ## Como executar
 
