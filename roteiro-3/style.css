@@ -1,0 +1,130 @@
+/* Brasa & Pão — Roteiro 03 (ProgWeb 2)
+   Paleta: ketchup, mostarda, creme e chapa */
+
+:root {
+  --ketchup: #D93A26;
+  --ketchup-escuro: #B02A18;
+  --mostarda: #F6B733;
+  --creme: #FFF4DE;
+  --chapa: #2A1A12;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--creme);
+  color: var(--chapa);
+}
+
+h1, h2, h3, .marca, .total-valor, .menu-nome, .menu-preco {
+  font-family: 'Baloo 2', sans-serif;
+}
+
+/* ---------- Navegação ---------- */
+.barra { background-color: var(--chapa); }
+.marca { color: var(--creme); font-weight: 800; font-size: 1.6rem; }
+.marca span { color: var(--mostarda); }
+.marca:hover { color: var(--creme); }
+
+/* ---------- Botões ---------- */
+.btn-mostarda { background-color: var(--mostarda); color: var(--chapa); font-weight: 800; border: 0; }
+.btn-mostarda:hover { background-color: #FFC94F; color: var(--chapa); }
+
+.btn-ketchup { background-color: var(--ketchup); color: #fff; font-weight: 800; border: 0; }
+.btn-ketchup:hover { background-color: var(--ketchup-escuro); color: #fff; }
+
+/* ---------- Topo (hero) ---------- */
+.hero {
+  background: linear-gradient(135deg, var(--ketchup), #F07C2A);
+  color: #fff;
+  padding: 3rem 0;
+}
+.hero h1 { font-size: 2.6rem; font-weight: 800; }
+.hero .destaque { color: var(--mostarda); }
+.hero-foto {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;          /* corta a foto sem deformar */
+  border-radius: 24px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .3);
+  background-color: rgba(255, 255, 255, .2);
+}
+
+/* ---------- Painéis (cards de cada passo) ---------- */
+.painel {
+  border: 0;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(42, 26, 18, .12);
+}
+.painel .card-body { padding: 1.5rem; }
+
+.passo {
+  display: inline-block;
+  width: 2.2rem;
+  height: 2.2rem;
+  line-height: 2.2rem;
+  text-align: center;
+  border-radius: 50%;
+  background-color: var(--ketchup);
+  color: #fff;
+  margin-right: .5rem;
+}
+
+.form-check-input:checked { background-color: var(--ketchup); border-color: var(--ketchup); }
+
+/* ---------- Cards do cardápio ---------- */
+.menu-card {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+  width: 100%;
+  height: 100%;
+  padding: .8rem;
+  text-align: left;
+  color: var(--chapa);
+  background-color: #FFFCF5;
+  border: 3px solid transparent;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s;
+}
+.menu-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(42, 26, 18, .15);
+}
+.menu-card.selecionado {
+  border-color: var(--ketchup);
+  background-color: #FFF0CC;
+}
+
+.menu-foto {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  background-color: #F0DDBE;   /* aparece se a foto não carregar */
+}
+.menu-nome { font-size: 1.25rem; font-weight: 800; margin-top: .4rem; }
+.menu-ingredientes { flex-grow: 1; font-size: .88rem; }
+.menu-preco { font-size: 1.3rem; font-weight: 800; color: var(--ketchup); }
+
+/* ---------- Resumo ---------- */
+.resumo { top: 80px; overflow: hidden; }
+.resumo-topo { background-color: var(--chapa); color: var(--creme); }
+
+.total-box {
+  background-color: var(--chapa);
+  color: var(--creme);
+  border: 0;
+  border-radius: 16px;
+}
+.total-valor { font-size: 2.8rem; font-weight: 800; color: var(--mostarda); line-height: 1; }
+
+/* ---------- Rodapé ---------- */
+.rodape { background-color: var(--chapa); color: var(--creme); padding: 2rem 0; }
+
+@media (max-width: 767.98px) {
+  .hero h1 { font-size: 2.1rem; }
+  .hero-foto { height: 220px; }
+}
+
+.creditos { opacity: .6; font-size: .75rem; }
