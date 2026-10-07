@@ -5,32 +5,32 @@ CST em Sistemas para a Internet — IFSC Câmpus Garopaba
 ## Estrutura do projeto
 
 ```
-exercicio-retomada/
-├── index.html                       # Roteiro 01: Bootstrap 5 (Exemplos 1 a 5)
-├── cadastro.html                    # Roteiro 02: cadastro com jQuery
-├── app.js                           # Roteiro 02: jQuery + LocalStorage (Exemplos 6 a 11)
-├── roteiro-3/
-│   └── exercicio-roteiro3/
-│       ├── index.html               # Roteiro 03: Brasa & Pão
-│       ├── style.css                # Roteiro 03: cores e ajustes visuais
-│       └── app.js                   # Roteiro 03: cálculo em tempo real + LocalStorage
-├── README.md
-└── .gitignore
+programacao-web-2/
+├── roteiro-1/
+│   └── index.html       # Roteiro 01: Bootstrap 5 (Exemplos 1 a 5)
+├── roteiro-2/
+│   ├── cadastro.html    # Roteiro 02: cadastro com jQuery
+│   └── app.js           # Roteiro 02: jQuery + LocalStorage (Exemplos 6 a 11)
+└── roteiro-3/
+    ├── index.html       # Roteiro 03: Brasa & Pão
+    ├── style.css        # Roteiro 03: cores e ajustes visuais
+    ├── app.js           # Roteiro 03: cálculo em tempo real + LocalStorage
+    └── README.md
 ```
 
-Os dois `app.js` são independentes: o do Roteiro 03 fica dentro da própria subpasta, junto com o `style.css`.
+Cada roteiro fica na sua própria pasta, então o `app.js` do Roteiro 02 e o do Roteiro 03 são independentes.
 
 ## Roteiro 01 — Bootstrap 5 & Layout Responsivo
 
-`index.html` reúne os Exemplos 1 a 5: grid responsivo, formulários, cards e alertas, tabelas zebradas e o layout completo de cadastro e listagem.
+`roteiro-1/index.html` reúne os Exemplos 1 a 5: grid responsivo, formulários, cards e alertas, tabelas zebradas e o layout completo de cadastro e listagem.
 
 ## Roteiro 02 — jQuery, DOM & LocalStorage
 
-`cadastro.html` + `app.js` (Exemplos 6 a 11): captura de formulário, feedback visual, `.css()`, painel retrátil, tabela dinâmica e persistência com `localStorage`. Extra: filtro por nome em tempo real.
+`roteiro-2/cadastro.html` + `roteiro-2/app.js` (Exemplos 6 a 11): captura de formulário, feedback visual, `.css()`, painel retrátil, tabela dinâmica e persistência com `localStorage`. Extra: filtro por nome em tempo real.
 
 ## Roteiro 03 — Brasa & Pão (Calculadora de Pedidos)
 
-`roteiro-3/exercicio-roteiro3/index.html` + `style.css` + `app.js`:
+`roteiro-3/index.html` + `style.css` + `app.js`:
 
 - Lanche principal (`select`, também escolhível pelos cards do cardápio), adicionais (switches com badge de preço), quantidade (input group com − / +), tipo de entrega e cupom.
 - Leitura segura com `parseFloat()` / `parseInt()` e fallback `|| 0`; soma dos adicionais com `.each()` e `:checked`.
@@ -120,9 +120,9 @@ git push
 3. Após alguns minutos, as páginas ficam em:
 
 ```
-https://SEU-USUARIO.github.io/progweb2-roteiros/
-https://SEU-USUARIO.github.io/progweb2-roteiros/cadastro.html
-https://SEU-USUARIO.github.io/progweb2-roteiros/roteiro-3/exercicio-roteiro3/
+https://marinacornelius.github.io/programacao-web-2/roteiro-1/
+https://marinacornelius.github.io/programacao-web-2/roteiro-2/cadastro.html
+https://marinacornelius.github.io/programacao-web-2/roteiro-3/
 ```
 
 Se a página publicada parecer desatualizada, pressione **Ctrl + F5** para ignorar o cache do navegador.
