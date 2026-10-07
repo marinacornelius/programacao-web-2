@@ -92,6 +92,82 @@
 
   </main>
 
+  <!-- MODAL DE CADASTRO COM VALIDAÇÃO VISUAL BOOTSTRAP 5 -->
+  <div class="modal fade" id="modalCadastro" tabindex="-1" aria-labelledby="modalCadastroLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-4 border-0 shadow-lg">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title font-outfit fw-bold text-dark" id="modalCadastroLabel">
+            <i class="bi bi-shop text-success me-2"></i>Cadastrar Serviço na Vitrine
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        
+        <form id="formCadastro" novalidate>
+          <input type="hidden" id="servicoId" value="">
+          <div class="modal-body pt-3">
+            <p class="text-muted small mb-3">Preencha as informações do empreendedor local para cadastrar na vitrine:</p>
+
+            <div class="mb-3">
+              <label for="nome" class="form-label small fw-bold text-muted">Nome do Empreendimento / Profissional *</label>
+              <input type="text" class="form-control rounded-3" id="nome" placeholder="Ex: Maré Alta Artesanatos" required>
+              <div class="invalid-feedback">Por favor, informe o nome do empreendimento.</div>
+            </div>
+
+            <div class="row g-2 mb-3">
+              <div class="col-md-6">
+                <label for="categoria" class="form-label small fw-bold text-muted">Categoria *</label>
+                <select class="form-select rounded-3" id="categoria" required>
+                  <option value="" selected disabled>Selecione...</option>
+                  <option value="Alimentação">Alimentação &amp; Gastronomia</option>
+                  <option value="Tecnologia">Tecnologia &amp; Internet</option>
+                  <option value="Artesanato">Artesanato &amp; Arte Local</option>
+                  <option value="Serviços Gerais">Serviços Gerais &amp; Reformas</option>
+                  <option value="Turismo">Turismo &amp; Passeios</option>
+                </select>
+                <div class="invalid-feedback">Selecione uma categoria.</div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="bairro" class="form-label small fw-bold text-muted">Bairro / Localidade *</label>
+                <input type="text" class="form-control rounded-3" id="bairro" placeholder="Ex: Ferrugem, Centro..." required>
+                <div class="invalid-feedback">Informe o bairro em Garopaba.</div>
+              </div>
+            </div>
+
+            <div class="row g-2 mb-3">
+              <div class="col-md-6">
+                <label for="precoBase" class="form-label small fw-bold text-muted">Preço Base Referência (R$) *</label>
+                <input type="number" step="0.50" min="0" class="form-control rounded-3" id="precoBase" placeholder="Ex: 50.00" required>
+                <div class="invalid-feedback">Informe um valor válido em R$.</div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="telefone" class="form-label small fw-bold text-muted">WhatsApp / Telefone *</label>
+                <input type="tel" class="form-control rounded-3" id="telefone" placeholder="48999998888" required pattern="[0-9]{10,11}">
+                <div class="invalid-feedback">Informe um telefone válido com DDD (10 ou 11 dígitos).</div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="descricao" class="form-label small fw-bold text-muted">Descrição dos Serviços e Produtos *</label>
+              <textarea class="form-control rounded-3" id="descricao" rows="3" placeholder="Descreva os produtos, serviços, diferenciais ou formas de atendimento..." required></textarea>
+              <div class="invalid-feedback">Insira uma breve descrição sobre o negócio.</div>
+            </div>
+          </div>
+
+          <div class="modal-footer border-0 pt-0">
+            <button type="button" class="btn btn-light rounded-pill px-4 text-muted fw-bold" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-success rounded-pill px-4 font-outfit fw-bold shadow-sm" id="btnSalvarModal">
+              <i class="bi bi-check2-circle me-1"></i> <span id="btnSalvarTexto">Salvar na Vitrine</span>
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
   <!-- RODAPÉ INSTITUCIONAL -->
   <footer>
     <div class="container text-center">
