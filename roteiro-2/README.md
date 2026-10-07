@@ -5,17 +5,18 @@ CST em Sistemas para a Internet — IFSC Câmpus Garopaba
 ## Estrutura do projeto
 
 ```
-exercicio-retomada/
-├── index.html       # Roteiro 01: Bootstrap 5 (Exemplos 1 a 5)
-├── cadastro.html    # Roteiro 02: página de cadastro com jQuery
-├── app.js           # Roteiro 02: lógica jQuery + LocalStorage (Exemplos 6 a 11)
-├── README.md
-└── .gitignore
+programacao-web-2/
+├── roteiro-1/
+│   └── index.html       # Roteiro 01: Bootstrap 5 (Exemplos 1 a 5)
+└── roteiro-2/
+    ├── cadastro.html    # Roteiro 02: página de cadastro com jQuery
+    ├── app.js           # Roteiro 02: lógica jQuery + LocalStorage (Exemplos 6 a 11)
+    └── README.md
 ```
 
 ## Roteiro 01 — Bootstrap 5 & Layout Responsivo
 
-`index.html` reúne os Exemplos 1 a 5:
+`roteiro-1/index.html` reúne os Exemplos 1 a 5:
 
 1. Grid responsivo e containers
 2. Formulários e inputs estilizados
@@ -42,7 +43,7 @@ Dependências (via CDN): Bootstrap 5 CSS/JS, Bootstrap Icons e jQuery 3.7.1.
 
 ## Como executar
 
-Abra a pasta no VS Code e abra o `index.html` ou o `cadastro.html` no navegador (ou use a extensão Live Server).
+Abra a pasta no VS Code e abra o `roteiro-2/cadastro.html` no navegador (ou use a extensão Live Server). O layout estático do Roteiro 01 está em `roteiro-1/index.html`.
 
 ## Conectar ao GitHub (primeira vez)
 
